@@ -27,9 +27,6 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 //const {isLoggedIn} = require("./middleware.js");
 const wrapAsync = require("./utils/wrapAsyc.js");
-
-
-
 const listings = require("./routes/listing.js");
 const review = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
