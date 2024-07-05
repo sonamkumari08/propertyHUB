@@ -1,21 +1,5 @@
 
-  <!---- <%layout("/layouts/boilerplate") -%>
 
-
-<script>
-let mapToken = "<= process.env.MAP_TOKEN %>";
-console.log(mapToken);
-	mapboxgl.accessToken = mapToken;
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        center: [84.3807, 24.7487], // starting position [lng, lat]
-        zoom: 9 // starting zoom
-    });
-</script>
-</script> -->
-
-
-<!-------START-->
 
 
 <% layout("/layouts/boilerplate") -%>
@@ -35,9 +19,10 @@ console.log(mapToken);
         <div class="card-body">
           <p class="card-text">
 
-            <p class="card-text"> Owned by<i><%= listing.owner._username %></i></p>
+            <p class="card-text"> Owned by<i><%= listing.owner %></i></p>
+            <p class="card-text">   <%= listing.title %></p>
             <p class="card-text">   <%= listing.description %></p>
-            <p class="card-text">   &#8377; <%= listing.price.toLocaleString("en-IN")%>/night</p>
+            <p class="card-text">   &#8377; <%= listing.price%></p>
               <p class="card-text">    <%= listing.location %></p>
                 <p class="card-text">   <%= listing.country %></p>
          </p>
@@ -45,7 +30,7 @@ console.log(mapToken);
     </div>
    
 
-   <% if(currUser && currUser._id.equals(currUder._id)) { %>
+   <% if(currUser && currUser._id.equals(currUser._id)) { %>
    <div class="btns">
     <a 
     href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-2 offset-2 edit-btn mt-4"
@@ -59,6 +44,9 @@ console.log(mapToken);
 
 
 <hr>
+    </div>
+    </div>
+    
   <div class=" col-8 offset-3 mb-3">
     <% if(currUser)  { %>
   <h4>Leave a review</h4>
@@ -83,21 +71,25 @@ console.log(mapToken);
       <label for="first-rate5" title="Amazing">5 stars</label>
     </fieldset>
       </div>
-   
-  <div class="mb-3" mt-3 >
-    <label for="comment"class="form-label" >Comments</label>
-    <textarea 
-    name="review[comment]"
-    id="comment"
-    cols="30"
-    rows="5"
-    class="form-control"
-    required
-    ></textarea>
-    <div class="invalid-feedback  "> Please add some comments for review</div>
-  </div>
-  <button class="btn btn-outline-dark">  Submit</button>
+  
 </form>
+ 
+<div class="mb-3" mt-3 >
+  <label for="comment"class="form-label" >Comments</label>
+  <textarea 
+  name="review[comment]"
+  id="comment"
+  cols="30"
+  rows="5"
+  class="form-control"
+  required
+  ></textarea>
+  <div class="invalid-feedback  "> Please add some comments for review</div>
+</div>
+<button class="btn btn-outline-dark">  Submit</button>
+
+
+
     </div>
   </form>
   <% } %>
@@ -116,18 +108,7 @@ console.log(mapToken);
         <h5 class="card-title">@<%= review.author.username %></h5>
         <p class="starability-result card-text"
          data-rating="<%= review.rating %>"> </p>
-
-        <p class="card-text"> <%= review.comment %></p>
-          
-        <form
-        class="mb-3"
-        method="POST"
-        action="/listings/<%= listing._id %>/reviews/
-        <%= review._id %>?_method=DELETE">
-        
-          <button class="btn btn-sm btn-dark">Delete </button>
-        
-        </form>
+  
       </div>
         </div>
       

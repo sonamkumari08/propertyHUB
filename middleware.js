@@ -41,6 +41,7 @@ module.exports.isOwner = async (req , res, next) => {
     next();
 };
 
+
 module.exports.validateListing = (req, res, next) => {
     let {error} =  listingSchema.validate(req.body);
    
@@ -51,7 +52,6 @@ module.exports.validateListing = (req, res, next) => {
       next();
      }
   };
-
 /*
   module.exports.validateReview = (req, res, next) => {
       let {error} =  reviewSchema.validate(req.body);
@@ -74,7 +74,7 @@ module.exports.isReviewAuthor = async (req , res, next) => {
     }
 
     next();
-};*/
+};
 
-
+*/
 

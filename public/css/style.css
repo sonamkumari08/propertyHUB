@@ -275,7 +275,7 @@ width: 80vh;
 .exclusive div img{
 width: 100%;
 border-radius: 50%;
-height: 200px;
+height: 250px;
 }
 .exclusive p
    {
@@ -285,7 +285,7 @@ height: 200px;
 .exclusive div{
    position: relative;
 }
-/* tramdimg place */
+
 
 a{
    text-decoration: none;
