@@ -27,9 +27,6 @@ module.exports.index = async (req, res) => {
     res.render("listings/mainpage.ejs", { listing });
   };
 
-
-
-
 // show route
   module.exports.showListing = async (req, res) => {
     let { id } = req.params;
@@ -59,10 +56,6 @@ module.exports.index = async (req, res) => {
      req.flash("success", "New Listing Created");
      res.redirect("/listings");
    }; 
-  
- 
- 
-
 
   //edit 
   module.exports.renderEditForm = async (req, res) => {
