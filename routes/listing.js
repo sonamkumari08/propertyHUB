@@ -9,7 +9,6 @@ const wrapAsync = require("../utils/wrapAsyc.js");
 const Review = require("../models/review.js");
 const { response } = require("express");
 
-
 router
 .route("/")
  .get( wrapAsync(listingController.index))

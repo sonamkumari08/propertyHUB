@@ -28,6 +28,8 @@ const userRouter = require("./routes/user.js");
 
 
 
+
+ 
  
  const MONGO_URL = process.env.ATLASDB_URL;
 
@@ -110,15 +112,12 @@ app.use("/", userRouter);
     email: "student@gmail.com",
     username: "delta-student"
   });
-
-
    let registerdUser = await User. register(fakeUser, "helloworld");
   res.send(registerdUser);
 });*/
 
 app.all("*",(req, res, next) => {
   next(new ExpressError(404, "page Not Found!"));
-
 });
 
 app.use((err, req, res, next) =>  {

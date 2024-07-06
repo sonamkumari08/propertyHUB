@@ -8,8 +8,7 @@ module.exports.index = async (req, res) => {
   };
 
 //New Route
-
-  module.exports.renderNewForm = (req, res) => {
+    module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs");
   };
 
@@ -45,9 +44,6 @@ module.exports.index = async (req, res) => {
     
     res.render("listings/show.ejs", { listing });
   };
-
-
-
   module.exports.createListing = async (req, res, next) => {
     const newListing = new Listing(req.body.listing);  
     newListing.owner = req.user._id;
@@ -56,6 +52,10 @@ module.exports.index = async (req, res) => {
      req.flash("success", "New Listing Created");
      res.redirect("/listings");
    }; 
+  
+ 
+ 
+
 
   //edit 
   module.exports.renderEditForm = async (req, res) => {

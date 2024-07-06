@@ -1,5 +1,4 @@
 <% layout("/layouts/boilerplate") -%>
-   <body>
     <div class="row mt-3">
       <div class="col-8 offset-3 ">
         <h3><%= listing.title %></h3>
@@ -16,16 +15,18 @@
             <p class="card-text">   <%= listing.title %></p>
             <p class="card-text">   <%= listing.description %></p>
             <p class="card-text">   &#8377;<%= listing.price%></p>
-              <p class="card-text">    <%= listing.location %></p>
-                <p class="card-text">   <%= listing.country %></p>
+            <p class="card-text">   <%= listing.country %></p>
+            <p class="card-text">    <%= listing.location %></p>
          </p>
     </div>
    <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+
    <div class="btns">
     <a 
-    href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-2 offset-2 edit-btn mt-4">Edit </a>
+    href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-2 offset-2 edit-btn mt-4"
+    >Edit </a>
     <form  method="POST" action="/listings/<%=listing._id%>?_method=DELETE"  >
-      <button  class="btn btn-dark  offset-4 mt-4" >Delete</button>
+      <button  class="btn btn-dark  offset-5 mt-4" >Delete</button>
     </form>
   </div>
   <% } %>
@@ -36,9 +37,8 @@
     <% if(currUser)  { %>
   <h4>Leave a review</h4>
   <form action="/listings/<%= listing.id %>/reviews" method="POST"
-    novalidate class="needs-validation">
-    <div >
-
+     novalidate class="needs-validation"> 
+     <div >
       <div class="mb-3 mt-3">
         <label for="rating" class="form-label">Rating</label>
     <fieldset class="starability-slot">
@@ -68,46 +68,47 @@
   required
   ></textarea>
   <div class="invalid-feedback  "> Please add some comments for review</div>
+</div>
+<button class="btn btn-outline-dark">  Submit</button>
   </div>
- <button class="btn btn-outline-dark">  Submit</button>
     </div>
   </form>
   <% } %>
+  <div class=" col-8 offset-3 mb-3 mt-5">
   <h4>All Reviews</h4>
-   <div class="row">
-    <% for(review of listing.reviews){ %>
-     <div class="card col-5 ms-3 mb-3">
+  <div class="row">
+   <% for(review of listing.reviews){ %>
+   <div class="card col-5 ms-3 mb-3">
       <div class="card-body">
-        <h5 class="card-title"><%= review.author.Username %></h5>
-        <p><%= review.comment%></p>
+        <h5 class="card-title">@<%= review.author.username %></h5>
         <p class="starability-result card-text"
          data-rating="<%= review.rating %>"> </p>
-  
       </div>
         </div>
-      
   <% } %>
     </div>  
   </div>
     </div>
     </div>
- 
-<div class="container text-center   mb-5    ">
-  <div class="row ">
-    <div class="col align-self-start">
-    <h4> “You must try these resorts”  </h4>
-    ⭐ ⭐ ⭐ ⭐<br>
-   
-   <img  src="/media/tent1.webp "  class="rounded-circle" height="50px" width="50px" >
-   Matt Cannon<br>San Diego, CA
-    </div>
-  </div>
+    
+<div class="container text-center mb-5">
+ <div class="row">
+   <div class="col align-self-start">
+   <h4> “You must try these resorts”  </h4>
+   ⭐ ⭐ ⭐ ⭐<br>
+  
+  <img  src="/media/tent1.webp "  class="rounded-circle" height="50px" width="50px" >
+  Matt Cannon<br>San Diego, CA
+   </div>
  </div>
-    <h3 class="text-center mb-5">Where you'll be</h3>
-    <div class="row mb-3 ">
+</div>
+  <div class=" col-8 offset-3 mb-3">
+    <h3>Where you'll be</h3>
+  </div>
+    <div class="row mb-3 offset-3">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28985.28902375344!2d84.36083737253254!3d24.755664032603985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398cfc35b57ffe31%3A0xffea2031cb937478!2z4KSU4KSw4KSC4KSX4KS-4KSs4KS-4KSmLCDgpKzgpL_gpLngpL7gpLA!5e0!3m2!1shi!2sin!4v1666072786122!5m2!1shi!2sin"
-       style="border:0;  height: 300px; width: 50%; margin: auto;
+       style="border:0;  height: 300px; width: 60%; 
       " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-       
+
    
