@@ -1,13 +1,8 @@
  if(process.env.NODE_ENV != "production") {
   require('dotenv').config();
 }
-
-
 console.log(process.env.SECRET);
 
-
-
-/*New code*/
 
 const express = require("express");
 const app = express();
@@ -25,7 +20,6 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-//const {isLoggedIn} = require("./middleware.js");
 const wrapAsync = require("./utils/wrapAsyc.js");
 const listings = require("./routes/listing.js");
 const review = require("./routes/review.js");
@@ -50,7 +44,6 @@ async function main() {
 }
 
 
-
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -60,7 +53,6 @@ app.use(express.static(path.join(__dirname,"/public")));
 
 
 const sessionOptions = {
-   //store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
@@ -69,11 +61,7 @@ const sessionOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
   },
-  
-
 };
-
-
 
 
  app.get("/", (req, res) => {
@@ -127,8 +115,6 @@ app.use("/", userRouter);
    let registerdUser = await User. register(fakeUser, "helloworld");
   res.send(registerdUser);
 });*/
-
-
 
 app.all("*",(req, res, next) => {
   next(new ExpressError(404, "page Not Found!"));

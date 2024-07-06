@@ -5,11 +5,6 @@ const ExpressError = require("./utils/ExpressError.js");
 
 
 
-
-
-
-
-
 module.exports.isLoggedIn = (req, res, next) => {
     console.log(req.user);
     if (!req.isAuthenticated()) {
@@ -19,8 +14,6 @@ module.exports.isLoggedIn = (req, res, next) => {
       }
       next();
 };
-
-
 module.exports.saveRedirectUrl = (req, res, next) => {
 if (req.session.redirectUrl ) {
     res.locals.redirectUrl = req.session.redirectUrl;
@@ -29,7 +22,6 @@ if (req.session.redirectUrl ) {
 next();
 };
 
-
 module.exports.isOwner = async (req , res, next) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
@@ -37,10 +29,8 @@ module.exports.isOwner = async (req , res, next) => {
         req.flash("error", "You are not Owner of this listing");
         res.redirect(`/listings/${id}`);
     }
-
     next();
 };
-
 
 module.exports.validateListing = (req, res, next) => {
     let {error} =  listingSchema.validate(req.body);
@@ -52,7 +42,7 @@ module.exports.validateListing = (req, res, next) => {
       next();
      }
   };
-/*
+
   module.exports.validateReview = (req, res, next) => {
       let {error} =  reviewSchema.validate(req.body);
      
@@ -62,9 +52,6 @@ module.exports.validateListing = (req, res, next) => {
         next();
        }
     };
-  
-
-
 module.exports.isReviewAuthor = async (req , res, next) => {
     let {id, reviewId } = req.params;
     let review = await Review.findById(id);
@@ -76,5 +63,5 @@ module.exports.isReviewAuthor = async (req , res, next) => {
     next();
 };
 
-*/
+
 

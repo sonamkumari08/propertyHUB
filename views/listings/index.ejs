@@ -2,54 +2,52 @@
 
 <% layout("/layouts/boilerplate") -%> <%= success %>
 
- 
 
-
-    <div class="filters  bg-body-light  border-bottom ">
+    <div class="filters   ">
       <div class="filter">
         <a href="listings/mainpage"><i class="fa-solid fa-fire"></i></a>
-          <p>Trending</p>
+          <p class=" filters">Trending</p>
     </div>
     <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-bed"></i></a>
-           <p>Rooms</p>
+           <p class=" filters" >Rooms</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-mountain-city"></i></a>
-           <p>Iconic city</p>
+           <p class=" filters" >Iconic city</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-mountain-sun"></i></a>
-           <p>Mountains</p>
+           <p class=" filters" >Mountains</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-brands fa-fort-awesome"></i></a>
-           <p>Castles</p>
+           <p class=" filters" >Castles</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-person-swimming"></i></a>
-           <p>Amazing pools</p>
+           <p class=" filters" >Amazing pools</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-campground"></i></a>
-           <p>Camping</p>
+           <p  class=" filters">Camping</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage">  <i class="fa-solid fa-tractor"></i>    </a>
-           <p>Farms</p>
+           <p class=" filters" >Farms</p>
      </div>
     
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-snowflake"></i></a>
-           <p>Arctic</p>
+           <p class=" filters" >Arctic</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-igloo"></i></a>
-           <p>Doms</p>
+           <p class=" filters" >Doms</p>
      </div>
      <div class="filter">
       <a href="listings/mainpage"><i class="fa-solid fa-palette"></i></a>
-           <p>Creative space</p>
+           <p class=" filters" >Creative space</p>
      </div>
 
      <div class="tax-toggle">
@@ -70,11 +68,13 @@
         alt="listing_image"
         style="height: 20rem "
         />
-        <div class="card-img-overlay"></div>
+        <div class="card-img-overlay">
+          <i class="fa-regular fa-heart"></i>
+        </div>
         <div class="card-body">
           <p class="card-text">
            <%= listing.title %> <br>
-           <%= listing.price%>/night<br>
+           &#8377;<%= listing.price%>/night<br>
            <i class="tax-info ">  &nbsp; <b>+18% GST</b></i>
            
           </p>
