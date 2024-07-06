@@ -66,9 +66,9 @@ const sessionOptions = {
 };
 
 
-// app.get("/", (req, res) => {
- // res.send("Hi, I am root");
-//});
+//// app.get("/", (req, res) => {
+// // res.send("Hi, I am root");
+////});
 
 
 const store = MongoStore.create({
@@ -127,6 +127,7 @@ app.use((err, req, res, next) =>  {
 } );
 
 
-app.listen(8080, () => {
+app.listen(property-hub-euly.vercel.app
+, () => {
   console.log("server is listening to port 8080");
 });
