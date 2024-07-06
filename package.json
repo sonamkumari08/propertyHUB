@@ -1,13 +1,12 @@
 {
-  "engines": {
-    "node": "116.17.0"
-  },
-  "name": "apna-web-hub-project",
+  "name": "PROPERTY HUB",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": " node app.js"
+    
   },
   "keywords": [],
   "author": "",
