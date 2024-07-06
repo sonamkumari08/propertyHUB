@@ -1,7 +1,4 @@
-{
-  "engines": {
-    "node": "116.17.0"
-  },
+
   "name": "apna-web-hub-project",
   "version": "1.0.0",
   "description": "",
