@@ -117,7 +117,7 @@ app.use((err, req, res, next) =>  {
 } );
 
 
-app.listen(property-hub-euly.vercel.app
+app.listen(8080
 , () => {
   console.log("server is listening to port 8080");
 });
