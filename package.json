@@ -1,6 +1,8 @@
 {
+  "engines": {
+    "node": "v16.17.0"
+  },
   "name": "propertyhub",
-
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
