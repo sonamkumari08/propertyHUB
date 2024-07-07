@@ -14,7 +14,7 @@ const methodOverride = require("method-override");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const Review = require("./models/review.js");
-const session = require("express-session");
+
 const MongoStore = require ("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -54,16 +54,6 @@ app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 
-const sessionOptions = {
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    expires: Date.now() + 7*24 * 60 * 60* 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
-  },
-};
 
 
 //// app.get("/", (req, res) => {
@@ -83,7 +73,7 @@ store.on("error", () => {
   console.log("ERROR in MONGO SESSION STORE", err);
 });
 
-app.use(session(sessionOptions));
+
 app.use(flash());
 
 app.use(passport.initialize());
